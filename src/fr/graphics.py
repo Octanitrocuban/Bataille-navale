@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-
 @author: Nougaret Matthieu
 
 Ce module compte les fonctions graphiques utilisées pour tracer le plateau de
@@ -33,7 +32,7 @@ def show_state_ancrage(tablehumain, dicshiphumain, lplaces):
 	"""
 	plt.figure(figsize=(8, 8))
 	plt.imshow(tablehumain, zorder=1)
-	# to have the grid lines and the labes on the axes offset
+	# pour avoir les lignes de la grille et les labels sur les axes décalés
 	plt.xticks(range(10), lplaces[1], fontsize=13)
 	plt.yticks(range(10), lplaces[0], fontsize=13)
 	for i in np.arange(0.5, 9.5, 1):
@@ -371,9 +370,9 @@ def pretty_dict_print(ship_dico):
 			 +'[0.00, 0.75, 0.00] |')
 		print(sep)
 
-	if 'Fregate' in ship_dico['Type']:
-		print('|      Fregate     |   3    |    '
-			 +str(num[nam == 'Fregate'][0])+'   | jaune  | '
+	if 'Frégate' in ship_dico['Type']:
+		print('|      Frégate     |   3    |    '
+			 +str(num[nam == 'Frégate'][0])+'   | jaune  | '
 			 +'[1.00, 0.90, 0.00] |')
 		print(sep)
 
