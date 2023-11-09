@@ -1,6 +1,30 @@
 # Bataille-navale
 Own implementation of battleship game.
 
+## Files:
+boucle_de_jeu:
+
+
+execute:
+
+
+graphics:
+
+
+ia_difficile:
+
+
+ia_general:
+
+
+ia_moyen:
+
+
+interface:
+
+
+
+
 There are 3 possibilities :
 
   - Human vs bot
