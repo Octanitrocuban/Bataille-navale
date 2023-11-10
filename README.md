@@ -4,7 +4,7 @@ Own implementation of battleship game.
 ## Files and functions:
 boucle_de_jeu:
 
-    Module contenant les fonctions permetant de faire s'affonter un humain contre l'ordinateur ou deux bots entre eux.
+  Module contenant les fonctions permetant de faire s'affonter un humain contre l'ordinateur ou deux bots entre eux.
 
     main_loop_human_bot:
 
