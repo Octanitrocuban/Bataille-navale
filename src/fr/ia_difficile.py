@@ -229,12 +229,20 @@ def map_one_boat(plateau, ray):
 
 	proba = np.zeros((10, 10))
 	places_0 = np.argwhere(plateau == 0)
-	lk0 = np.concatenate((places_0[:, np.newaxis, np.newaxis]+kernel))
-	lk0 = lk0[np.sum((lk0[:, :, 0] <= 9)&(lk0[:, :, 1] <= 9)&(
-					  lk0[:, :, 0] >= 0)&(lk0[:, :, 1] >= 0),
-					 axis=1) == ray]
+	lk0 = places_0[:, np.newaxis, np.newaxis]+kernel
+	# une méthode de concaténation plus rapide
+	empty = np.empty((lk0.shape[0]*lk0.shape[1], lk0.shape[2], 2), dtype=int)
+	empty[:, :, 0] = np.reshape(lk0[:, :, :, 0],
+						(lk0.shape[0]*lk0.shape[1], lk0.shape[2]))
 
-	lk0 = lk0[np.sum(plateau[lk0[:, :, 0], lk0[:, :, 1]], axis=1) == 0]
+	empty[:, :, 1] = np.reshape(lk0[:, :, :, 1],
+						(lk0.shape[0]*lk0.shape[1], lk0.shape[2]))
+
+	lk0 = empty[np.sum((empty[:, :, 0] <= 9)&(empty[:, :, 1] <= 9)&(
+						empty[:, :, 0] >= 0)&(empty[:, :, 1] >= 0),
+					 	axis=1) == ray]
+
+	lk0 = lk0[np.sum(plateau[empty[:, :, 0], empty[:, :, 1]], axis=1) == 0]
 	empty = np.empty((lk0.shape[0]*lk0.shape[1], 2), dtype=int)
 	empty[:, 0] = np.ravel(lk0[:, :, 0])
 	empty[:, 1] = np.ravel(lk0[:, :, 1])
