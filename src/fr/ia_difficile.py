@@ -229,8 +229,8 @@ def map_one_boat(plateau, ray):
 
 	proba = np.zeros((10, 10))
 	places_0 = np.argwhere(plateau == 0)
-	lk0 = places_0[:, np.newaxis, np.newaxis]+kernel
 	# une méthode de concaténation plus rapide
+	lk0 = places_0[:, np.newaxis, np.newaxis]+kernel
 	empty = np.empty((lk0.shape[0]*lk0.shape[1], lk0.shape[2], 2), dtype=int)
 	empty[:, :, 0] = np.reshape(lk0[:, :, :, 0],
 						(lk0.shape[0]*lk0.shape[1], lk0.shape[2]))
@@ -240,9 +240,9 @@ def map_one_boat(plateau, ray):
 
 	lk0 = empty[np.sum((empty[:, :, 0] <= 9)&(empty[:, :, 1] <= 9)&(
 						empty[:, :, 0] >= 0)&(empty[:, :, 1] >= 0),
-					 	axis=1) == ray]
+						axis=1) == ray]
 
-	lk0 = lk0[np.sum(plateau[empty[:, :, 0], empty[:, :, 1]], axis=1) == 0]
+	lk0 = lk0[np.sum(plateau[lk0[:, :, 0], lk0[:, :, 1]], axis=1) == 0]
 	empty = np.empty((lk0.shape[0]*lk0.shape[1], 2), dtype=int)
 	empty[:, 0] = np.ravel(lk0[:, :, 0])
 	empty[:, 1] = np.ravel(lk0[:, :, 1])
@@ -433,12 +433,20 @@ def sink_proba_map(table, kernel, rayon):
 	"""
 	proba = np.zeros((10, 10))
 	places = np.argwhere(table == 2)
-	places = np.concatenate((places[:, np.newaxis, np.newaxis]+kernel))
-	places = places[np.sum((places[:, :, 0] <= 9)&(
-							places[:, :, 1] <= 9)&(
-							places[:, :, 0] >= 0)&(
-							places[:, :, 1] >= 0),
-							axis=1) == rayon]
+	places = places[:, np.newaxis, np.newaxis]+kernel
+	# une méthode de concaténation plus rapide
+	empty = np.empty((places.shape[0]*places.shape[1], places.shape[2], 2),
+						dtype=int)
+
+	empty[:, :, 0] = np.reshape(places[:, :, :, 0],
+						(places.shape[0]*places.shape[1], places.shape[2]))
+
+	empty[:, :, 1] = np.reshape(places[:, :, :, 1],
+						(places.shape[0]*places.shape[1], places.shape[2]))
+
+	places = empty[np.sum((empty[:, :, 0] <= 9)&(empty[:, :, 1] <= 9)&(
+						   empty[:, :, 0] >= 0)&(empty[:, :, 1] >= 0),
+						  axis=1) == rayon]
 
 	places = places[np.sum(table[places[:, :, 0],
 								 places[:, :, 1]] == 1, axis=1) == 0]
@@ -453,6 +461,7 @@ def sink_proba_map(table, kernel, rayon):
 	empty[:, 1] = np.ravel(places[:, :, 1])
 	posi, index, compte = np.unique(empty, axis=0, return_counts=True,
 									return_index=True)
+
 	proba[posi[:, 0], posi[:, 1]] = compte*comptage[index]
 	return proba
 
