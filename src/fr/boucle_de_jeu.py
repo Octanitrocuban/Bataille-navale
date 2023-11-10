@@ -388,7 +388,25 @@ def bot_match(joueur1, joueur2, show_fight=False):
 
 def bot_analyse(mode, show_fight=False):
 	"""
-	
+	Fonction pour faire jouer un bot seul afin d'analyser le nombre de tir
+	nécessaire pour couler tous les bateaux d'une carte aléatoire.
+
+	Parameters
+	----------
+	mode : str
+		Type de bot (niveau de difficulté) à tester.
+	show_fight : bool
+		Contrôle si l'état du plateau sera affiché ou non.
+
+	Retourne
+	--------
+	water : list
+		Liste des positions des coups ayant touché une case d'eau.
+	iter_in : list
+		Liste contenant deux entiers. Le premier indique le nombre de coups
+		tirés en phase de chasse. Le second indique le nombre de coups tirés
+		en phase de destruction.
+
 	"""
 	bateaux = {'Type': np.array(['Porte-avion','Croiseur','Sous-marin',
 								 'Frégate', 'Navette']),
