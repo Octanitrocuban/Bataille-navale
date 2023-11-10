@@ -6,9 +6,9 @@ boucle_de_jeu:
 
   Module contenant les fonctions permetant de faire s'affonter un humain contre l'ordinateur ou deux bots entre eux.
 
-    main_loop_human_bot:
+  main_loop_human_bot:
 
-      Fonction principale qui permet à un humain de faire une partie de bataille contre un bot de la difficulté choisit.
+    Fonction principale qui permet à un humain de faire une partie de bataille contre un bot de la difficulté choisit.
     
 
 execute:
