@@ -347,37 +347,37 @@ def pretty_dict_print(ship_dico):
 	"""
 	num = ship_dico['Nombre']
 	nam = ship_dico['Type']
-	sep = '+'+'-'*13+'+'+'-'*10+'+'+'-'*8+'+'+'-'*9+'+'+'-'*20+'+'
+	sep = '+'+'-'*13+'+'+'-'*9+'+'+'-'*10+'+'+'-'*8+'+'+'-'*9+'+'+'-'*20+'+'
 	print(sep)
-	print('|     Type     | Longueur | Nmmbre |  Couleur  |'
-		 +'     Codes rvb     |')
+	print('|     Type    | Numéros | Longueur | Nombre | Couleur |'
+		 +'      Codes rvb     |')
 	print(sep)
 	if 'Porte-avion' in ship_dico['Type']:
-		print('| Porte-avion |   5    |    '
+		print('| Porte-avion |    0    |     5    |    '
 			 +str(num[nam == 'Porte-avion'][0])+'   |  gris   | '
 			 +'[0.50, 0.50, 0.50] |')
 		print(sep)
 
 	if 'Croiseur' in ship_dico['Type']:
-		print('|     Croiseur     |   4    |    '
+		print('|   Croiseur  |    1    |     4    |    '
 			 +str(num[nam == 'Croiseur'][0])+'   | orange  | '
 			 +'[1.00, 0.50, 0.00] |')
 		print(sep)
 
 	if 'Sous-marin' in ship_dico['Type']:
-		print('|    Sous-marin    |   3    |    '
-			 +str(num[nam == 'Sous-marin'][0])+'   |  vert  | '
+		print('|  Sous-marin |    2    |     3    |    '
+			 +str(num[nam == 'Sous-marin'][0])+'   |   vert  | '
 			 +'[0.00, 0.75, 0.00] |')
 		print(sep)
 
 	if 'Frégate' in ship_dico['Type']:
-		print('|      Frégate     |   3    |    '
-			 +str(num[nam == 'Frégate'][0])+'   | jaune  | '
+		print('|    Frégate  |    3    |     3    |    '
+			 +str(num[nam == 'Frégate'][0])+'   |  jaune  | '
 			 +'[1.00, 0.90, 0.00] |')
 		print(sep)
 
 	if 'Navette' in ship_dico['Type']:
-		print('|      Navette     |   2    |    '
+		print('|    Navette  |    4    |     2    |    '
 			 +str(num[nam == 'Navette'][0])+'   | violet  | '
 			 +'[0.75, 0.00, 0.75] |')
 		print(sep)

@@ -468,8 +468,8 @@ def sink_proba_map(table, kernel, rayon):
 def proba_sinker(what_computer_see, list_notsink, shuttle_sk, submarine_sk,
 				 fregate_sk, cruiser_sk, airpoter_sk):
 	"""
-	Fonction pour calculer la carte de probabilité pour chaque bateau
-	restant sur la carte.
+	Fonction pour calculer la case à cibler en fonction de la probabilité
+	pour chaque bateau restant sur la carte.
 
 	Paramètres
 	----------

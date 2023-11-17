@@ -12,7 +12,7 @@ from tqdm import tqdm
 import boucle_de_jeu
 #=============================================================================
 
-to_do = 'bot vs bot'
+to_do = 'human'
 
 if to_do == 'human':
 	result = boucle_de_jeu.main_loop_human_bot()
@@ -33,7 +33,6 @@ elif  to_do == 'bot vs bot':
 			raise
 
 	scores = np.array(scores)
-
 	dictionaire = np.load('results_bots_match.npy', allow_pickle=True)[0]
 	clee = joueur1+'_vs_'+joueur2
 	if clee in list(dictionaire.keys()):

@@ -36,8 +36,8 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_list,
 	Retourne
 	--------
 	human_table : numpy.ndarray
-		Table de jeu de l'humaine avec les couleurs rvb pour indiquer où sont
-		les bateaux.
+		Table de jeu de l'humaine avec les couleurs rvb pour indiquer où
+		sont les bateaux.
 	human_dico : dict
 		Dictionnaire humain où l’état des bateaux est enregistré.
 
@@ -50,7 +50,14 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_list,
 		ok_type_boat = False
 		ok_position = False
 		while ok_type_boat != True:
-			print("Veuillez choisir un type de bateau pour le placer.")
+			print("Veuillez choisir un type de bateau pour le placer.\n"
+				 + "Pour cela rentrez le nom (Type) ou le numéros du "
+				 + "navire.\nIl est aussi possible d'utiliser la commande :"
+				 + " 'aleatoire' à n'importe quel moment pour que soit "
+				 + "automatiquement palcé les\nbateaux restant de manière "
+				 + "aléatoire. Vous pourrez toujours modifier les positions "
+				 + "et les rotations de navires placé de\ncette manière.")
+
 			graphs.pretty_dict_print(dico_ships_cp)
 			ship_type = input("=>")
 			if ship_type in list(short_boat_call.keys()):
@@ -63,14 +70,15 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_list,
 					print("Il n'y a plus de bateaux de ce type de "
 						  + "disponible, veuillez réessayer avec un autre "
 						  + "type.")
+
 				else:
 					dico_ships_cp['Nombre'][id_type] -= 1
-					print(dico_ships_cp)
 					ok_type_boat = True
 
 			elif ship_type == 'aleatoire':
 				human_dico, human_table = iag.random_positiong_ships(
 												dico_ships_cp, human_table)
+
 				dico_ships_cp['Nombre'][:] = 0
 				ok_type_boat = True
 				ok_position = True
@@ -98,6 +106,7 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_list,
 					if ancre[0] in list_plcs[0]:
 						place_xy[0] = np.where(
 									   np.array(list_plcs[0]) == ancre[0])[0]
+
 						place_xy[1] = int(ancre[1])
 					else:
 						place_xy[1] = int(ancre[0])
@@ -105,7 +114,8 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_list,
 									   np.array(list_plcs[0]) == ancre[1])[0]
 
 					rayon = dico_ships_cp['Longueur'][
-								dico_ships_cp['Type'] == ship_type][0]-1
+								dico_ships_cp['Type'] == ship_type][0]
+
 					end_close = iag.look_end_cell(rayon, place_xy,
 															human_table)
 					if len(end_close) == 0:
