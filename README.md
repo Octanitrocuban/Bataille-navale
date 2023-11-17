@@ -96,21 +96,13 @@ Module for the human actions.
 
 
 ### Version 1.0.0
-There are three bots against which it is possible to play:
+There are three bots against which it is possible to play. For each of them, their activity is separated into two phases: hunting and destruction.
 
-  - easy: 
+  - easy: in the hunting phase, the bot randomly fires on an unexplored square. In the phase of destruction, the bot takes the four direct neighbors of all the cells where there is a sunken boat. He only keeps the cells unexplored, then randomly chooses one of them.
 
-  - medium:
+  - medium: in the hunting phase, the bot randomly chooses an unexplored cell that is part of a pre-calculated cell list. This list contains the positions of every other cell, so that they correspond to the white or black squares of a checkerboard. In the phase of destruction, the bot looks for whether the cells containing an affected boat line up horizontally or vertically in order to continue in the same extension.
 
-  - hard: 
-
-In execute.py:
-
-  - human vs bot
-
-  - Bot vs bot
-
-  - Bot solo
+  - hard: in the hunting phase, the bot approximates the probability density function of the ships according to those already sunk and cells already explored. For this purpose it adds all valid positions for each vessel independently. In the destruction phase, the bot approximates the probability density function of distribution of the boats in the same way as in the hunting phase, but in such a way as to target the cells around those that have already touched a boat.
 
 
 
@@ -209,10 +201,10 @@ Module pour les actions de l'humain.
 
 
 ### Version 1.0.0
-Il y a trois bots contres lesquels il est possible de jouer :
+Il y a trois bots contres lesquels il est possible de jouer. Pour chacun d'entre eux, leur activité est separé en deux phases : la chasse et la destruction. Les 
 
-  - facile :
+  - facile : en phase de chasse, le bot tir aléatoirement sur une case non explorée. En phase de destruction, le bot prend les quatre voisines directes de toutes les cellules où se trouve un bateau non coulé. Il ne garde que les cellules non explorées, puis choisit aléatoirement l'une d'entre elles.
 
-  - moyen :
+  - moyen : en phase de chasse, le bot choisit aléatoirement une cellule non explorée qui fait partie d'une liste de cellules précalculée. Cette liste contient les positions d'une cellule sur deux, de sorte que ces dernières correspondent aux cases blanches ou noires d'un damier. En phase de destruction, le bot cherche si les cellules contenant un bateau touché s'alignent horizontalement ou verticalement afin de continuer dans le même prolongement.
 
-  - difficile
+  - difficile : en phase de chasse, le bot approxime la fonction de densité de probabilité de répartition des bateaux en fonction de ceux déjà coulés et des cellules déjà explorées. Pour cela il additionne toutes les positions valides pour chaque navire de façon indépendante. En phase de destruction, le bot approxime la fonction de densité de probabilité de répartition des bateaux de la même manière qu'en phase de chasse, mais de manière à cibler les cellules autour de celles ayant déjà touché  un bateau.
