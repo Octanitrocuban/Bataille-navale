@@ -50,7 +50,14 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_liLst,
 		ok_type_boat = False
 		ok_position = False
 		while ok_type_boat != True:
-			print("Please choose a type of boat to place it.")
+			print("")
+			print("Please choose a type of boat to place it.\n"
+				 + "Enter the name (Type) or the vessel identifier.\n"
+				 + "You can also use the command: 'random' at any time to "
+				 + "automatically webbed the remaining\nboats randomly. You "
+				 + "will still be able to change the positions and "
+				 + "rotations of ships\nplaced in this way.")
+
 			graphs.pretty_dict_print(dico_ships_copy)
 			ships_type = input("=>")
 			if ships_type in list(short_boat_call.keys()):
@@ -67,7 +74,6 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_liLst,
 
 				else:
 					dico_ships_copy['Number'][id_type] -= 1
-					print(dico_ships_copy)
 					ok_type_boat = True
 
 			elif ships_type == 'random':
@@ -111,7 +117,7 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_liLst,
 									np.array(list_plcs[0]) == ancre[1])[0]
 
 					rayon = dico_ships_copy['Length'][
-								dico_ships_copy['Type'] == ships_type][0]-1
+								dico_ships_copy['Type'] == ships_type][0]
 
 					end_close = iag.look_end_cell(rayon, place_xy,
 												  human_table)
@@ -125,11 +131,11 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_liLst,
 
 			ok_rota = False
 			while ok_rota != True:
-				print("Please select one of the possible rotations. To do"
+				print("Please select one of the possible rotations.\nTo do"
 					 +" this, enter the integer corresponding to the "
 					 +"desired case represented in the following table(s)."
-					 +" If you wish to change the acroche box, enter: 'back"
-					 +" hook'.")
+					 +"\nIf you wish to change the acroche box, enter: "
+					 +"'back hook'.")
 
 				graphs.show_state_rotation(human_table, dico_ships_copy,
 											rayon, end_close, id_type,

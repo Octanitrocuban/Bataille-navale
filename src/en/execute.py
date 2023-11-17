@@ -12,7 +12,7 @@ from tqdm import tqdm
 import game_loop
 #=============================================================================
 
-to_do = 'test bot'
+to_do = 'human'
 
 if to_do == 'human':
 	result = game_loop.main_loop_human_bot()
