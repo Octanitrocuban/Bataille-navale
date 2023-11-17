@@ -18,6 +18,13 @@ Module containing functions to make a human race against the computer or two bot
 #### execute:
 Module containing functions to make a human fight against the computer, two bots between them or to test the effectiveness of a bot.
 
+  - 'humain': starts a match between a human and a bot.
+
+  - 'bot vs bot': allows one bot to compete against another to test the difference in strength between the two.
+
+  - 'test bot': Test the number of shots a bot needs to complete a random card and see which phase of the bot is the strongest.
+
+
 #### graphics:
 This module countain the graphical functions used to plot the game board.
 
@@ -91,7 +98,7 @@ Module for the human actions.
 ### Version 1.0.0
 There are three bots against which it is possible to play:
 
-  - easy:
+  - easy: 
 
   - medium:
 
@@ -99,12 +106,11 @@ There are three bots against which it is possible to play:
 
 In execute.py:
 
-  - Human vs bot
+  - human vs bot
 
   - Bot vs bot
 
   - Bot solo
-
 
 
 
@@ -124,6 +130,13 @@ Module contenant les fonctions permetant de faire s'affonter un humain contre l'
 
 #### execute :
 Module contenant les fonctions permetant de faire s'affonter un humain contre l'ordinateur, deux bots entre eux ou pour tester l'efficacité d'un bot.
+
+  - 'humain': enclenche un matche entre un humain et un bot.
+
+  - 'bot vs bot' : permet de faire s'affronter un bot contre un autre pour tester la différence de force entre les deux.
+
+  - 'test bot' : Permets de tester le nombre de tirs nécessaires à un bot pour compléter une carte aléatoire et voir quelle phase du bot est la plus forte.
+
 
 #### graphics :
 Ce module compte les fonctions graphiques utilisées pour tracer le plateau de jeu.
@@ -203,12 +216,3 @@ Il y a trois bots contres lesquels il est possible de jouer :
   - moyen :
 
   - difficile
-
-Dans le fichier execute.py :
-
-  - Human vs bot
-
-  - Bot vs bot
-
-  - Bot solo
-
