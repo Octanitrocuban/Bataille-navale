@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 Module for the human actions.
-
 """
 import numpy as np
 from copy import deepcopy
