@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 Module contenant les fonctions permetant de faire s'affonter un humain contre
 l'ordinateur, deux bots entre eux ou pour tester l'efficacité d'un bot.
-
 """
 import numpy as np
 import matplotlib.pyplot as plt
