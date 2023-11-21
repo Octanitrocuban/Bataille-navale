@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 Module contenant les functions spécifiques au mode de difficulté difficile.
-
 """
 import numpy as np
 #=============================================================================
