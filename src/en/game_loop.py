@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 Module containing functions to make a human race against the computer or
 two bots between them.
-
 """
 import numpy as np
 import graphics as graphs
