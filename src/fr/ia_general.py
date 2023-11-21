@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 Module contant les functions générales.
-
 """
 import numpy as np
 from copy import deepcopy
