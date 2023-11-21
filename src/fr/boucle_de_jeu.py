@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 Module contenant les fonctions permetant de faire s'affonter un humain contre
 l'ordinateur ou deux bots entre eux
-
 """
 import numpy as np
 import graphics as graphs
