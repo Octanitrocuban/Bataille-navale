@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 Ce module compte les fonctions graphiques utilisées pour tracer le plateau de
 jeu.
-
 """
 import matplotlib.pyplot as plt
 import numpy as np
