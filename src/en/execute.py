@@ -2,7 +2,6 @@
 """
 Module containing functions to make a human race against the computer, two
 bots between them or to test the effectiveness of a bot.
-
 """
 import numpy as np
 import matplotlib.pyplot as plt
