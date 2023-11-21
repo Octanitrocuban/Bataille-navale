@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 This module countain the graphical functions used to plot the game board.
-
 """
 import matplotlib.pyplot as plt
 import numpy as np
