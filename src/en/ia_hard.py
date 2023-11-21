@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 Module containing the functions specific to the hard difficulty bot.
-
 """
 import numpy as np
 from copy import deepcopy
