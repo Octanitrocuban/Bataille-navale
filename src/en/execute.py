@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 Module containing functions to make a human race against the computer, two
 bots between them or to test the effectiveness of a bot.
 
