@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: Nougaret Matthieu
-
 Module contenant les fonctions spécifiques au bot de difficulté moyen.
-
 """
 import numpy as np
 import ia_general as iag
