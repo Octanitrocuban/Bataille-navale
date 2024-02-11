@@ -228,7 +228,7 @@ def show_state_of_the_fight(table_humain, listppl, human_dico, ordi_watter,
 	table_humain : numpy.ndarray
 		Table de jeu de l'humaine avec les couleurs rvb pour indiquer où sont
 		les bateaux.
-	list_ppl : list
+	listppl : list
 		Liste de deux listes de chaînes de caractères. Correspond aux valeurs
 		à mettre sur les axes x et y. Provient de la fonction create_pos_pl().
 	human_dico : dict
@@ -259,8 +259,8 @@ def show_state_of_the_fight(table_humain, listppl, human_dico, ordi_watter,
 	plt.subplot(1, 2, 1)
 	plt.title("Table de jeu de l'humain")
 	plt.imshow(table_humain, zorder=1)
-	plt.xticks(range(10), list_ppl[1], fontsize=13)
-	plt.yticks(range(10), list_ppl[0], fontsize=13)
+	plt.xticks(range(10), listppl[1], fontsize=13)
+	plt.yticks(range(10), listppl[0], fontsize=13)
 	for i in np.arange(0.5, 9.5, 1):
 		plt.hlines(i, -0.5, 9.5, "k", zorder=2)
 		plt.vlines(i, -0.5, 9.5, "k", zorder=2)
@@ -282,8 +282,8 @@ def show_state_of_the_fight(table_humain, listppl, human_dico, ordi_watter,
 	plt.subplot(1, 2, 2)
 	plt.title("Table de jeu de l'orninateur")
 	plt.imshow(what_human_see, zorder=1)
-	plt.xticks(range(10), list_ppl[1], fontsize=13)
-	plt.yticks(range(10), list_ppl[0], fontsize=13)
+	plt.xticks(range(10), listppl[1], fontsize=13)
+	plt.yticks(range(10), listppl[0], fontsize=13)
 	for i in np.arange(0.5, 9.5, 1):
 		plt.hlines(i, -0.5, 9.5, "k", zorder=2)
 		plt.vlines(i, -0.5, 9.5, "k", zorder=2)
@@ -312,7 +312,7 @@ def print_victory(victoire, list_sinked, list_water):
 	if victoire == "nulle":
 		print("Partie nulle.")
 
-	elif Victoire == "humain":
+	elif victoire == "humain":
 		print("Victoire humain.")
 		print("******    ******     ******     *           *    ******* ")
 		print("*     *   *     *   *       *    *         *    *       *")
@@ -348,33 +348,39 @@ def pretty_dict_print(ship_dico):
 	print(sep)
 	print('|     Type    | Numéros | Longueur | Nombre | Couleur |'
 		 +'      Codes rvb     |')
+
 	print(sep)
 	if 'Porte-avion' in ship_dico['Type']:
 		print('| Porte-avion |    0    |     5    |    '
 			 +str(num[nam == 'Porte-avion'][0])+'   |  gris   | '
 			 +'[0.50, 0.50, 0.50] |')
+
 		print(sep)
 
 	if 'Croiseur' in ship_dico['Type']:
 		print('|   Croiseur  |    1    |     4    |    '
 			 +str(num[nam == 'Croiseur'][0])+'   | orange  | '
 			 +'[1.00, 0.50, 0.00] |')
+
 		print(sep)
 
 	if 'Sous-marin' in ship_dico['Type']:
 		print('|  Sous-marin |    2    |     3    |    '
 			 +str(num[nam == 'Sous-marin'][0])+'   |   vert  | '
 			 +'[0.00, 0.75, 0.00] |')
+
 		print(sep)
 
 	if 'Frégate' in ship_dico['Type']:
 		print('|    Frégate  |    3    |     3    |    '
 			 +str(num[nam == 'Frégate'][0])+'   |  jaune  | '
 			 +'[1.00, 0.90, 0.00] |')
+
 		print(sep)
 
 	if 'Navette' in ship_dico['Type']:
 		print('|    Navette  |    4    |     2    |    '
 			 +str(num[nam == 'Navette'][0])+'   | violet  | '
 			 +'[0.75, 0.00, 0.75] |')
+
 		print(sep)
