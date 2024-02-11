@@ -389,9 +389,9 @@ def human_play(list_possi_place, list_ppl, what_human_see, computer_plate,
 							shot_position[1]] = np.array([1., 0., 0.])
 
 					for i in list(dico_computer_copy.keys()):
-						if (dico_computer_copy[i]['rgb'] == 
-								computer_plate[shot_position[0], 
-									shot_position[1]].tolist()):
+						if np.sum(dico_computer_copy[i]['rgb'] == 
+								  computer_plate[shot_position[0], 
+												 shot_position[1]]) == 3:
 
 							dico_computer_copy[i]['state'] -= 1
 
