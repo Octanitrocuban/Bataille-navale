@@ -99,12 +99,14 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_list,
 				if ancre not in all_posi_pos_list:
 					print(str(ancre) + " n'est pas présent sur le plateau."
 						  + " Veuillez réessayer.")
+
 				else:
 					if ancre[0] in list_plcs[0]:
 						place_xy[0] = np.where(
 									   np.array(list_plcs[0]) == ancre[0])[0]
 
 						place_xy[1] = int(ancre[1])
+
 					else:
 						place_xy[1] = int(ancre[0])
 						place_xy[0] = np.where(
@@ -115,6 +117,7 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_list,
 
 					end_close = iag.look_end_cell(rayon, place_xy,
 															human_table)
+
 					if len(end_close) == 0:
 						print("Il n'y a aucune configuration possible pour "
 							  + "ce bateau avec cette case d'acroche. "
@@ -144,19 +147,22 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_list,
 
 					else:
 						xrt = np.linspace(place_xy[0],
-										  end_close[ch_rotation, 0], rayon+1,
-										  dtype=int)
+										  end_close[ch_rotation, 0],
+										  rayon+1, dtype=int)
+
 						yrt = np.linspace(place_xy[1],
-										  end_close[ch_rotation, 1], rayon+1,
-										  dtype=int)
+										  end_close[ch_rotation, 1],
+										  rayon+1, dtype=int)
 
 						human_dico[ship_type] = {}
 						human_dico[ship_type]['x'] = xrt
 						human_dico[ship_type]['y'] = yrt
 						human_dico[ship_type]['Couleur'] = dico_ships_cp[
 														'Couleur'][id_type]
+
 						human_dico[ship_type]['rvb'] = dico_ships_cp[
 														'Codes rvb'][id_type]
+
 						human_table[xrt, yrt] = human_dico[ship_type]['rvb']
 						ok_position = True
 						ok_rota = True
@@ -211,19 +217,20 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_list,
 											  + "suivante :")
 
 										for i in list(human_dico.keys()):
-											print(sctr(i) + " "
+											print(str(i) + " "
 												  + str(human_dico[i]))
 
 										re_typ = input("=>")
 										if re_typ in list(human_dico.keys()):
 											human_table[
 											  human_dico[re_typ]['x'],
-											  human_dico[re_typ]['y'],:] = 1.
+											  human_dico[re_typ]['y'], :] = 1.
 
 											masque = dico_ships_cp['Type']
 											masque = masque == re_typ
 											dico_ships_cp['Nombre'][
 																masque] += 1
+
 											human_dico.pop(re_typ)
 											ok_rearg = True
 											ok_reposi = True
@@ -386,9 +393,9 @@ def human_play(list_possi_place, list_ppl, what_human_see, computer_plate,
 										[1., 0., 0.])
 
 					for i in list(dico_computer_copy.keys()):
-						if (dico_computer_copy[i]['rvb'] == 
-								computer_plate[shot_position[0], 
-									shot_position[1]].tolist()):
+						if np.sum(dico_computer_copy[i]['rvb'] == 
+								  computer_plate[shot_position[0], 
+												shot_position[1]]) == 3:
 
 							dico_computer_copy[i]['etat'] -= 1
 
@@ -396,6 +403,7 @@ def human_play(list_possi_place, list_ppl, what_human_see, computer_plate,
 						if dico_computer_copy[i]['etat'] == 0:
 							print("Vous avez coulé le " + i.lower()
 								  + " ennemi !")
+
 							comp_lost.append(i)
 							for xi in dico_computer_copy[i]['x']:
 								for yi in dico_computer_copy[i]['y']:

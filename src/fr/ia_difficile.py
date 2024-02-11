@@ -178,6 +178,7 @@ def opening():
 					  np.array([78]), np.array([77]), np.array([78]),
 					  np.array([77]), np.array([78]), np.array([77]),
 					  np.array([78])], dtype=object)
+
 	return open_places, arbre
 
 def map_one_boat(plateau, ray):
@@ -206,15 +207,19 @@ def map_one_boat(plateau, ray):
 					[[ 0,  0], [ 0, -1], [ 0, -2], [ 0, -3], [ 0, -4]],
 					[[ 0,  0], [-1,  0], [-2,  0], [-3,  0], [-4,  0]]],
 					dtype=int)
+
 	kcr = np.array([[[ 0,  0], [ 0,  1], [ 0,  2], [ 0,  3]],
 					[[ 0,  0], [ 1,  0], [ 2,  0], [ 3,  0]],
 					[[ 0,  0], [ 0, -1], [ 0, -2], [ 0, -3]],
 					[[ 0,  0], [-1,  0], [-2,  0], [-3,  0]]], dtype=int)
+
 	ksm = np.array([[[ 0,  0], [ 0,  1], [ 0,  2]], [[ 0,  0], [ 1,  0],
 					[ 2,  0]], [[ 0,  0], [ 0, -1], [ 0, -2]], [[ 0,  0],
 					[-1,  0], [-2,  0]]], dtype=int)
+
 	knv = np.array([[[ 0,  0], [ 0,  1]], [[ 0,  0], [ 1,  0]], [[ 0,  0],
 					[ 0, -1]], [[ 0,  0], [-1,  0]]], dtype=int)
+
 	if ray == 5:
 		kernel = kpa
 	elif ray == 4:
@@ -327,9 +332,9 @@ def inner(damier_array, list_keep):
 	return union
 
 def choice_appx_dens_map(plateau, shuttle_sk, submarine_sk, fregate_sk,
-						 cruiser_sk, airpoter_sk, list_water,
-						 list_notsink, list_sinked, open_tree, open_tables,
-						 damier=None, use_damier=False):
+						 cruiser_sk, airpoter_sk, list_water, list_notsink,
+						 list_sinked, open_tree, open_tables, damier=None,
+						 use_damier=False):
 	"""
 	Cette fonction est utiliser pour déterminer quelle cellule doit être
 	ciblée.
@@ -377,13 +382,16 @@ def choice_appx_dens_map(plateau, shuttle_sk, submarine_sk, fregate_sk,
 
 	"""
 	if (len(list_water) < 8)&(len(list_notsink) == 0)&(
-				len(list_sinked) == 0):
+										len(list_sinked) == 0):
+
 		proba = np.zeros((10, 10))
 		current = np.sum(np.sum(open_tables == plateau, axis=1),
 						 axis=1) == 100
+
 		branch = open_tree[current[:-4]][0]
 		next_one = open_tables[branch[np.random.randint(0,
 											len(branch))]]
+
 		xh, yh = np.argwhere((next_one - plateau) == 1)[0]
 		return xh, yh
 
@@ -525,9 +533,8 @@ def proba_sinker(what_computer_see, list_notsink, shuttle_sk, submarine_sk,
 					[[ 0,  0], [ 0, -1], [ 0, -2]],
 					[[ 0,  0], [-1,  0], [-2,  0]]], dtype=int)
 
-
 	knv = np.array([[[ 0,  0], [ 0,  1]], [[ 0,  0], [ 1,  0]], [[ 0,  0],
-					[ 0, -1]], [[ 0,  0], [-1,  0]]], dtype=int)
+					 [ 0, -1]], [[ 0,  0], [-1,  0]]], dtype=int)
 
 	map_see_copy = np.copy(what_computer_see)
 	arr_not_sink = np.array(list_notsink)

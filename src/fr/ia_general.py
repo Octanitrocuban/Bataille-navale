@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Module contant les functions générales.
+Module contenant les fonctions générales.
 """
 import numpy as np
 from copy import deepcopy
@@ -139,6 +139,7 @@ def random_positiong_ships(ships_dico, computer_table=None):
 	for i in range(np.sum(copy_dico['Nombre'] > 0)):
 		ship = np.random.choice(
 				copy_dico['Type'][copy_dico['Nombre'] > 0], 1)[0]
+
 		id_type = np.where(copy_dico['Type'] == ship)[0][0]
 		ancres = np.argwhere((computer_table[:, :, 0] == 1)&(
 							  computer_table[:, :, 1] == 1)&(
@@ -156,6 +157,7 @@ def random_positiong_ships(ships_dico, computer_table=None):
 
 		possibles = np.concatenate(
 							(ancres[:, np.newaxis, np.newaxis]+kernel))
+
 		possibles = possibles[np.sum((possibles[:, :, 0] <= 9)&(
 									  possibles[:, :, 1] <= 9)&(
 									  possibles[:, :, 0] >= 0)&(
@@ -329,7 +331,7 @@ def damier_positions(color):
 	elif color == "k":
 		damier = damier == 1
 	else:
-		raise ValueError("color must be 'w' or 'k'.")
+		raise ValueError("color doit être 'w' ou 'k'.")
 
 	positions = np.argwhere(damier)
 	return positions, damier
@@ -497,6 +499,7 @@ def conseq_fire(what_comp_see, xc, yc, list_ppl, human_table, list_water,
 				if (hum_tbl[not_sink_temp[i][0],
 							not_sink_temp[i][1],
 							:].tolist() == color_ref_boat):
+
 					l_sink.append(not_sink_temp[i])
 					l_notsk.remove(not_sink_temp[i])
 

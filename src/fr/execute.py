@@ -30,6 +30,7 @@ elif  to_do == 'bot vs bot':
 			raise
 
 	scores = np.array(scores)
+
 	dictionaire = np.load('results_bots_match.npy', allow_pickle=True)[0]
 	clee = joueur1+'_vs_'+joueur2
 	if clee in list(dictionaire.keys()):

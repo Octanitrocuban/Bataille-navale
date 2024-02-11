@@ -114,9 +114,9 @@ def main_loop_human_bot():
 											  navette_b, sous_b, fregate_b,
 											  croiseur_b, porte_b)
 
-			cond_water = [xh,yh] not in water
-			cond_sinked = [xh,yh] not in not_sink
-			cond_not_sink = [xh,yh] not in sinked
+			cond_water = [xh, yh] not in water
+			cond_sinked = [xh, yh] not in not_sink
+			cond_not_sink = [xh, yh] not in sinked
 			if (cond_water)&(cond_sinked)&(cond_not_sink):
 				feu_ordi = True
 				conseq = iag.conseq_fire(what_comp_see, xh, yh, pspspl,
@@ -173,7 +173,7 @@ def bot_match(joueur1, joueur2, show_fight=False):
 	"""
 	Fonction pour faire 2 algorithmes de combat.
 
-	Parameters
+	Paramètres
 	----------
 	joueur1 : str
 		Niveau de difficulté du bot jouant en tant que joueur 1.
@@ -330,9 +330,11 @@ def bot_match(joueur1, joueur2, show_fight=False):
 				if joueur2 == 'facile':
 					xh2, yh2 = iag.look_first_hit(water_2, not_sink_2,
 												  sinked_2)
+
 				elif joueur2 == 'moyen':
 					xh2, yh2 = iam.neighbor_search(water_2, not_sink_2,
 												   sinked_2)
+
 				elif joueur2 == 'difficile':
 					xh2, yh2 = iad.proba_sinker(what_comp_see_2, not_sink_2,
 												navette_2,  sous_2,
@@ -388,7 +390,7 @@ def bot_analyse(mode, show_fight=False):
 	Fonction pour faire jouer un bot seul afin d'analyser le nombre de tir
 	nécessaire pour couler tous les bateaux d'une carte aléatoire.
 
-	Parameters
+	Paramètres
 	----------
 	mode : str
 		Type de bot (niveau de difficulté) à tester.
