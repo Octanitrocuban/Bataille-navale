@@ -30,7 +30,7 @@ def create_possible_places():
 	poss_places = np.concatenate((poss_1, poss_2)).tolist()
 	return axes, poss_places
 
-def random_positiong_ships(ships_dico, computer_table=None):
+def random_positiong_ships(ships_dico, computer_table=None, navig_ordi=None):
 	"""
 	Function to randomly fill a plate with the boats.
 
@@ -134,8 +134,8 @@ def random_positiong_ships(ships_dico, computer_table=None):
 	copy_dico = deepcopy(ships_dico)
 	if type(computer_table) == type(None):
 		computer_table = np.ones((10, 10, 3), dtype=float)
+		navig_ordi = {}
 
-	navig_ordi = {}
 	for i in range(np.sum(copy_dico['Number'] > 0)):
 		ship = np.random.choice(
 				copy_dico['Type'][copy_dico['Number'] > 0], 1)[0]

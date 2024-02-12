@@ -75,7 +75,8 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_liLst,
 
 			elif ships_type == 'random':
 				human_dico, human_table = iag.random_positiong_ships(
-											dico_ships_copy, human_table)
+											dico_ships_copy, human_table,
+											human_dico)
 
 				dico_ships_copy['Number'][:] = 0
 				ok_type_boat = True
@@ -149,11 +150,11 @@ def placing_human_boats(dico_ships, list_plcs, all_posi_pos_liLst,
 					else:
 						xrt = np.linspace(place_xy[0],
 										  end_close[ch_rotation, 0],
-										  rayon+1, dtype=int)
+										  rayon, dtype=int)
 
 						yrt = np.linspace(place_xy[1],
 										  end_close[ch_rotation, 1],
-										  rayon+1, dtype=int)
+										  rayon, dtype=int)
 
 						human_dico[ships_type] = {}
 						human_dico[ships_type]['x'] = xrt
