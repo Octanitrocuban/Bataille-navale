@@ -30,7 +30,7 @@ def create_possible_places():
 	poss_places = np.concatenate((poss_1, poss_2)).tolist()
 	return axes, poss_places
 
-def random_positiong_ships(ships_dico, computer_table=None):
+def random_positiong_ships(ships_dico, computer_table=None, navig_ordi=None):
 	"""
 	Fonction pour remplir aléatoirement le plateau de jeu avec les bateaux.
 
@@ -134,8 +134,8 @@ def random_positiong_ships(ships_dico, computer_table=None):
 	copy_dico = deepcopy(ships_dico)
 	if type(computer_table) == type(None):
 		computer_table = np.ones((10, 10, 3), dtype=float)
+		navig_ordi = {}
 
-	navig_ordi = {}
 	for i in range(np.sum(copy_dico['Nombre'] > 0)):
 		ship = np.random.choice(
 				copy_dico['Type'][copy_dico['Nombre'] > 0], 1)[0]
@@ -466,7 +466,7 @@ def conseq_fire(what_comp_see, xc, yc, list_ppl, human_table, list_water,
 		touch_b = True
 		l_notsk.append([xc, yc])
 		for i in list(human_dic.keys()):
-			if human_dic[i]['rvb'].tolist() == hum_tbl[xc, yc].tolist():
+			if np.sum(human_dic[i]['rvb'] == hum_tbl[xc, yc]) == 3:
 				human_dic[i]['etat'] -= 1
 				break
 
